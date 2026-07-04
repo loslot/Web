@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 249 255;
+    --foreground: 30 27 46;
+    --card: 255 255 255;
+    --card-foreground: 30 27 46;
+    --border: 232 228 245;
+    --input: 232 228 245;
+    --primary: 124 58 237;
+    --primary-foreground: 255 255 255;
+    --secondary: 245 243 255;
+    --secondary-foreground: 91 71 133;
+    --muted: 245 243 255;
+    --muted-foreground: 148 138 173;
+    --accent: 238 233 255;
+    --accent-foreground: 109 40 217;
+    --ring: 124 58 237;
+    --radius: 0.625rem;
+  }
+
+  /* Dark mode: background per provided swatch — HSL(212 19% 46%) */
+  .dark {
+    --background: 95 116 140;
+    --foreground: 241 245 249;
+    --card: 30 41 59;
+    --card-foreground: 241 245 249;
+    --border: 51 65 85;
+    --input: 51 65 85;
+    --primary: 167 139 250;
+    --primary-foreground: 30 27 46;
+    --secondary: 15 23 42;
+    --secondary-foreground: 148 163 184;
+    --muted: 15 23 42;
+    --muted-foreground: 100 116 139;
+    --accent: 30 27 75;
+    --accent-foreground: 216 180 254;
+    --ring: 167 139 250;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  .bg-background { background-color: rgb(var(--background)); }
+  .text-foreground { color: rgb(var(--foreground)); }
+  .bg-card { background-color: rgb(var(--card)); }
+  .border-border { border-color: rgb(var(--border)); }
+}
+
+@layer utilities {
+  .text-primary-color { color: rgb(var(--primary)); }
+  .bg-primary-color { background-color: rgb(var(--primary)); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
